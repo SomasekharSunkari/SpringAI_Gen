@@ -1,0 +1,42 @@
+{
+    "name": "Email writer Assistant",
+    "description": "AI powered email replay generator",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "http://localhost:8084/*",
+        "*://mail.google.com/*"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "*://mail.google.com/*"
+            ],
+            "css": [
+                "content.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icons/*"
+            ],
+            "matches": [
+                "*://mail.google.com/*"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "hello.html",
+        "default_icon": "extension.jpg"
+    }
+}
